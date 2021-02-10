@@ -6,14 +6,15 @@
     <title>ASS 01</title>
   <head>
     <body>
-      <% java.util.Date currentTime = new java.util.Date(); %>
-      <%--Unknown error on 10th line --%> 
-      <% if(currentTime < "11:00:00"){%>
-     <h1>"Good Morning"</h1>
-      <%}else if("11:00:00" < currentTime < "15:00:00"){%>
-	 <h1>"Good afternoon"</h1>
+    <%-- tried to format time with manual formatter but faced with unknown error --%>
+      <%!currentTime = new java.util.Date(); %>
+      <% SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss"); %>
+      <% if(sdf.format(currentTime) < "12:00:00"){%>
+     <h1>"Have a breakfast"</h1>
+      <%}else if("11:00:00" < sdf.format(currentTime) < "16:00:00"){%>
+	 <h1>"Have a lunch"</h1>
       <% }else{ %>
-         <h1>"Good evening"</h1>
+         <h1>"Have a dinner/supper"</h1>
       <%} %>				 
     </body>
 </html>
